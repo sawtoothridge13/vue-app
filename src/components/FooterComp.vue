@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <footer class="d-flex align-items-center justify-content-center mt-5">
     Copyright &copy; {{ new Date().getFullYear() }}

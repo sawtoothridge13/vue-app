@@ -1,13 +1,19 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
-import Body from '../components/Body.vue';
+import { createRouter, createWebHistory } from 'vue-router';
+import BodyComp from '../components/BodyComp.vue';
+import LoginComp from '../components/LoginComp.vue';
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Body,
+    component: BodyComp,
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: LoginComp,
   },
 ];
 
-const router = createRouter({ history: createWebHashHistory(), routes });
+const router = createRouter({ history: createWebHistory(), routes });
 export default router;
