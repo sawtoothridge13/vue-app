@@ -1,39 +1,19 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <h1>Login</h1>
-        <hr />
-        <form-tag>
-          <text-input label="Email" type="email" name="email" required="true">
-          </text-input>
-
-          <text-input
-            label="Password"
-            type="password"
-            name="password"
-            required="true"
-          >
-          </text-input>
-
-          <hr />
-          <input type="submit" class="btn btn-primary" value="login" />
-        </form-tag>
-      </div>
-    </div>
-  </div>
+  <form
+    autocomplete="off"
+    :method="method"
+    action="action"
+    class="needs-validation"
+    novalidate
+  >
+    <slot></slot>
+  </form>
 </template>
 
 <script>
-import FormTag from './forms/FormTag.vue';
-import TextInput from './forms/TextInput.vue';
-
 export default {
-  name: 'loginComp',
-  components: {
-    FormTag,
-    TextInput,
-  },
+  name: 'FormTag',
+  props: ['method', 'action'],
   mounted() {
     (function () {
       'use strict';
