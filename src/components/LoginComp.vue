@@ -36,7 +36,7 @@ import FormTag from './forms/FormTag.vue';
 import TextInput from './forms/TextInput.vue';
 
 export default {
-  name: 'loginComp',
+  name: 'LoginComp',
   components: {
     FormTag,
     TextInput,
@@ -61,7 +61,7 @@ export default {
         body: JSON.stringify(payload),
       };
 
-      fetch('http://localhost:8001/users/login', requestOptions)
+      fetch('http://localhost:8081/users/login', requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (data.error) {
