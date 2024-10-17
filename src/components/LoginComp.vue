@@ -4,7 +4,7 @@
       <div class="col">
         <h1>Login</h1>
         <hr />
-        <form-tag @myevent="submitHandler">
+        <form-tag @myevent="submitHandler" name="myForm" event="myevent">
           <text-input
             v-model="email"
             label="Email"
@@ -50,31 +50,27 @@ export default {
   methods: {
     submitHandler() {
       console.log('SubmitHandler success!');
+
+      const payload = {
+        email: this.email,
+        password: this.password,
+      };
+
+      const requestOptions = {
+        method: 'POST',
+        body: JSON.stringify(payload),
+      };
+
+      fetch('http://localhost:8001/users/login', requestOptions)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.error) {
+            console.log('Error:', data.message);
+          } else {
+            console.log(data);
+          }
+        });
     },
-  },
-  mounted() {
-    (function () {
-      'use strict';
-
-      // Fetch all the forms we want to apply custom Bootstrap validation styles to
-      var forms = document.querySelectorAll('.needs-validation');
-
-      // Loop over them and prevent submission
-      Array.prototype.slice.call(forms).forEach(function (form) {
-        form.addEventListener(
-          'submit',
-          function (event) {
-            if (!form.checkValidity()) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-
-            form.classList.add('was-validated');
-          },
-          false,
-        );
-      });
-    })();
   },
 };
 </script>
