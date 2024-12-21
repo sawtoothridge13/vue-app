@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div class="row">
-      <div class="col">
+    <div class="row justify-content-center">
+      <div class="col text-center">
         <img
           src="./../assets/book-and-glasses.png"
           alt="Book and glasses"
